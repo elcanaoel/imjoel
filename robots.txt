@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /security.js
+Disallow: /.htaccess
+Disallow: /manifest.json
+Disallow: /README.md
+
+# Allow access to main files
+Allow: /index.html
+Allow: /styles.css
+Allow: /script.js
+
+# Crawl delay
+Crawl-delay: 1
