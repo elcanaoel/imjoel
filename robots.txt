@@ -1,7 +1,6 @@
 User-agent: *
 Disallow: /security.js
 Disallow: /.htaccess
-Disallow: /manifest.json
 Disallow: /README.md
 
 # Allow access to main files
