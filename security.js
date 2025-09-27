@@ -150,5 +150,127 @@ const SECURITY_CONFIG = {
         }
     });
     
+    // Advanced code protection
+    (function() {
+        // Obfuscate function names
+        const _0x4f8a = ['log', 'warn', 'error', 'info', 'debug'];
+        const _0x2b1c = ['clear', 'table', 'trace', 'group', 'groupEnd'];
+        
+        // Disable console completely
+        _0x4f8a.forEach(method => {
+            console[method] = function() { return false; };
+        });
+        
+        _0x2b1c.forEach(method => {
+            console[method] = function() { return false; };
+        });
+        
+        // Disable view source
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+Shift+U (view source)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 85) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // Disable Ctrl+Shift+C (inspect element)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable drag and drop
+        document.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        document.addEventListener('drop', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable copy/paste
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        document.addEventListener('paste', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable cut
+        document.addEventListener('cut', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable save as
+        window.addEventListener('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = '';
+            return '';
+        });
+        
+        // Disable print
+        window.addEventListener('beforeprint', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable print dialog
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.keyCode === 80) { // Ctrl+P
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Anti-debugging techniques
+        let _0x1a2b = 0;
+        setInterval(function() {
+            if (new Date() - _0x1a2b > 100) {
+                debugger;
+            }
+            _0x1a2b = new Date();
+        }, 100);
+        
+        // Disable F5 refresh
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode === 116) { // F5
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable Ctrl+R
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.keyCode === 82) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable Ctrl+F5
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.keyCode === 116) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable Ctrl+Shift+R
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 82) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+    })();
+    
 })();
 
