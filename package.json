@@ -4,8 +4,8 @@
   "description": "Joel Enejo's Portfolio Website",
   "main": "index.html",
   "scripts": {
-    "build": "echo Building portfolio... && mkdir dist 2>nul & robocopy . dist /E /XD node_modules dist .git 2>nul & echo Build complete || echo Build complete",
-    "start": "serve dist",
+    "build": "echo 'No build required for static site'",
+    "start": "serve .",
     "dev": "serve ."
   },
   "keywords": [
