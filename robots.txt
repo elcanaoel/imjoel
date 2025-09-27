@@ -11,3 +11,4 @@ Allow: /script.js
 
 # Crawl delay
 Crawl-delay: 1
+
