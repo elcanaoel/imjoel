@@ -14,6 +14,39 @@ app.use(express.static('.', {
   }
 }));
 
+// Explicitly serve static files (needed for Vercel)
+app.get('/styles.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'styles.css'), {
+    headers: {
+      'Content-Type': 'text/css'
+    }
+  });
+});
+
+app.get('/script.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'script.js'), {
+    headers: {
+      'Content-Type': 'application/javascript'
+    }
+  });
+});
+
+app.get('/security.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'security.js'), {
+    headers: {
+      'Content-Type': 'application/javascript'
+    }
+  });
+});
+
+app.get('/profile-pic.jpg', (req, res) => {
+  res.sendFile(path.join(__dirname, 'profile-pic.jpg'), {
+    headers: {
+      'Content-Type': 'image/jpeg'
+    }
+  });
+});
+
 // Serve manifest.json with correct content type
 app.get('/manifest.json', (req, res) => {
   res.sendFile(path.join(__dirname, 'manifest.json'), {
