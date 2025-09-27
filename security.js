@@ -1,7 +1,7 @@
 // Security Configuration
 const SECURITY_CONFIG = {
     // Disable right-click context menu
-    disableRightClick: true,
+    disableRightClick: false,
     // Disable text selection
     disableTextSelection: true,
     // Disable developer tools shortcuts
