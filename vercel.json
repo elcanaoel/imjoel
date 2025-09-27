@@ -18,6 +18,10 @@
       "use": "@vercel/static"
     },
     {
+      "src": "advanced-security.js",
+      "use": "@vercel/static"
+    },
+    {
       "src": "profile-pic.jpg",
       "use": "@vercel/static"
     }
