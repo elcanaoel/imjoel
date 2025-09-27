@@ -1,129 +1,65 @@
-# Enejo Portfolio Website
+# Joel Enejo's Portfolio
 
-A modern, responsive portfolio website built with HTML5, CSS3, and JavaScript. This website features a clean design, smooth animations, and full responsiveness across all devices.
-
-## Features
-
-- **Responsive Design**: Mobile-first approach with seamless adaptation to all screen sizes
-- **Modern UI/UX**: Clean, professional design with smooth animations and transitions
-- **Interactive Elements**: 
-  - Smooth scrolling navigation
-  - Mobile hamburger menu
-  - Contact form with validation
-  - Hover effects and animations
-  - Back-to-top button
-- **Performance Optimized**: 
-  - Debounced scroll events
-  - Intersection Observer for animations
-  - Optimized CSS and JavaScript
-- **Accessibility**: 
-  - Keyboard navigation support
-  - Focus states for interactive elements
-  - High contrast mode support
-  - Semantic HTML structure
-
-## Sections
-
-1. **Hero Section**: Eye-catching introduction with call-to-action buttons
-2. **About Section**: Personal information with statistics
-3. **Skills Section**: Technical skills organized by category
-4. **Projects Section**: Featured projects with links and technologies
-5. **Contact Section**: Contact form and social media links
-6. **Footer**: Copyright and additional information
+This is the portfolio website for Joel Enejo, a Full Stack Developer.
 
 ## Technologies Used
 
-- **HTML5**: Semantic markup and modern structure
-- **CSS3**: 
-  - Flexbox and Grid layouts
-  - CSS animations and transitions
-  - Media queries for responsiveness
-  - CSS custom properties
-- **JavaScript (ES6+)**:
-  - Modern JavaScript features
-  - DOM manipulation
-  - Event handling
-  - Form validation
-  - Intersection Observer API
+- HTML5
+- CSS3
+- JavaScript
+- Node.js with Express
+- Google Fonts
+- Font Awesome
 
-## Browser Support
+## Node.js Conversion
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+This portfolio has been converted from a static site to a Node.js application using Express.js.
 
-## Getting Started
+### Features
 
-1. Clone or download the project files
-2. Open `index.html` in your web browser
-3. No build process or dependencies required
+- Serves static files (HTML, CSS, JavaScript, images)
+- Proper MIME type handling for CSS and JavaScript files
+- Single-page application routing
 
-## File Structure
+### Getting Started
 
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the server:
+   ```
+   npm start
+   ```
+4. Visit `http://localhost:3000` in your browser
+
+### Development
+
+For development with auto-restart:
 ```
-portfolio/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles and responsive design
-├── script.js           # JavaScript functionality
-└── README.md           # Project documentation
-```
-
-## Customization
-
-### Colors
-The website uses a gradient color scheme. To customize colors, modify the CSS custom properties in `styles.css`:
-
-```css
-:root {
-  --primary-color: #667eea;
-  --secondary-color: #764ba2;
-  --text-color: #333;
-  --background-color: #ffffff;
-}
+npm run dev
 ```
 
-### Content
-- Update personal information in the HTML sections
-- Modify project details in the projects section
-- Change contact information and social media links
-- Replace placeholder icons with actual images
+### Deployment
 
-### Styling
-- Adjust spacing and typography in `styles.css`
-- Modify animations and transitions
-- Customize responsive breakpoints
+This application can be deployed to any Node.js hosting platform such as:
+- Heroku
+- DigitalOcean App Platform
+- AWS Elastic Beanstalk
+- Google Cloud Run
+- Azure App Service
 
-## Performance Features
+## Project Structure
 
-- **Lazy Loading**: Images and animations load as needed
-- **Debounced Events**: Optimized scroll and resize handlers
-- **CSS Animations**: Hardware-accelerated animations
-- **Minimal Dependencies**: No external frameworks required
+- `server.js` - Node.js Express server
+- `index.html` - Main HTML file
+- `styles.css` - Styling
+- `script.js` - Client-side JavaScript
+- `security.js` - Security features
+- `profile-pic.jpg` - Profile image
+- Other supporting files
 
-## Mobile Optimization
+## Author
 
-- Touch-friendly navigation
-- Optimized font sizes for mobile
-- Responsive images and layouts
-- Fast loading on mobile networks
-
-## SEO Features
-
-- Semantic HTML structure
-- Meta tags for social sharing
-- Clean URL structure
-- Fast loading times
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Contact
-
-For questions or suggestions, please contact [hello@enejo.dev](mailto:hello@enejo.dev)
-
----
-
-Built with ❤️ and modern web technologies
+Joel Enejo - Full Stack Developer
