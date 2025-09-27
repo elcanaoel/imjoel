@@ -131,6 +131,7 @@ p {
     width: 50%;
     padding: 0 2rem;
     z-index: 1;
+    animation: slideInLeft 1s ease-out;
 }
 
 .hero-content {
@@ -242,6 +243,7 @@ p {
     padding: 2rem;
     z-index: 1;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideInRight 1s ease-out 0.2s both;
 }
 
 .hero-right:hover {
@@ -780,6 +782,77 @@ section {
     }
 }
 
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* Loading states and transitions */
 .btn,
 .project-card,
@@ -862,7 +935,7 @@ html {
     scrollbar-width: none;
 }
 
-/* Mobile Responsive Styles */
+/* Enhanced Mobile Responsive Styles */
 @media (max-width: 1023px) {
     body {
         overflow: auto;
@@ -870,64 +943,150 @@ html {
         height: auto;
     }
     
+    .hero {
+        min-height: auto;
+        padding: 1rem 0;
+    }
+    
+    .hero-container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    
     .hero-left {
         position: static;
         width: 100%;
         height: auto;
-        padding: 2rem;
+        padding: 1.5rem;
+        order: 1;
     }
     
     .hero-right {
         position: static;
         width: 100%;
         height: auto;
-        padding: 2rem;
+        padding: 1.5rem;
         overflow-y: visible;
+        order: 2;
     }
     
     .projects-showcase {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        margin-top: 2rem;
     }
     
     .hero-content {
         text-align: center;
+        animation: slideInUp 0.8s ease-out;
     }
     
     .hero-title {
         font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        animation: fadeInScale 1s ease-out 0.2s both;
     }
     
     .hero-description {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        max-width: 100%;
+        animation: fadeInUp 1s ease-out 0.4s both;
     }
     
     .hero-nav {
         text-align: center;
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s ease-out 0.6s both;
     }
     
     .nav-item {
         justify-content: center;
+        margin-bottom: 1.5rem;
     }
     
     .social-links {
         justify-content: center;
+        animation: fadeInUp 1s ease-out 0.8s both;
     }
+    
+    .project-item {
+        animation: slideInUp 0.6s ease-out;
+        animation-fill-mode: both;
+    }
+    
+    .project-item:nth-child(1) { animation-delay: 0.1s; }
+    .project-item:nth-child(2) { animation-delay: 0.2s; }
+    .project-item:nth-child(3) { animation-delay: 0.3s; }
+    .project-item:nth-child(4) { animation-delay: 0.4s; }
+    .project-item:nth-child(5) { animation-delay: 0.5s; }
+    .project-item:nth-child(6) { animation-delay: 0.6s; }
+    .project-item:nth-child(7) { animation-delay: 0.7s; }
+    .project-item:nth-child(8) { animation-delay: 0.8s; }
 }
 
 @media (max-width: 767px) {
+    .hero {
+        padding: 0.5rem 0;
+    }
+    
+    .hero-left, .hero-right {
+        padding: 1rem;
+    }
+    
     .hero-title {
         font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
     }
     
     .hero-description {
         font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+    
+    .nav-item {
+        margin-bottom: 1rem;
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+    }
+    
+    .social-link {
+        width: 45px;
+        height: 45px;
+        margin: 0 0.5rem;
+    }
+    
+    .projects-showcase {
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .project-item {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .project-item h3 {
+        font-size: 1.1rem;
+    }
+    
+    .project-item p {
+        font-size: 0.9rem;
+    }
+    
+    .project-tech {
+        font-size: 0.8rem;
     }
     
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
     .exp-header {
@@ -943,6 +1102,7 @@ html {
     .education-item, .cert-item {
         flex-direction: column;
         align-items: flex-start;
+        padding: 0.8rem;
     }
     
     .edu-date, .cert-date {
@@ -953,14 +1113,130 @@ html {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+        padding: 1rem;
     }
     
     .resume-header h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .download-btn {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1rem;
     }
     
     .profile-image {
         width: 0.000000005px;
         height: 0.000000005px;
+    }
+    
+    /* Enhanced mobile animations */
+    .hero-content {
+        animation: slideInUp 0.6s ease-out;
+    }
+    
+    .hero-title {
+        animation: fadeInScale 0.8s ease-out 0.1s both;
+    }
+    
+    .hero-description {
+        animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+    
+    .hero-nav {
+        animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+    
+    .social-links {
+        animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .hero-left, .hero-right {
+        padding: 0.8rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .nav-item {
+        margin-bottom: 0.8rem;
+    }
+    
+    .nav-link {
+        font-size: 0.95rem;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+        margin: 0 0.3rem;
+    }
+    
+    .project-item {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .project-item h3 {
+        font-size: 1rem;
+    }
+    
+    .project-item p {
+        font-size: 0.85rem;
+    }
+    
+    .project-tech {
+        font-size: 0.75rem;
+    }
+    
+    .resume-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .download-btn {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 0.5rem 0;
+    }
+    
+    .hero-left, .hero-right {
+        padding: 0.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .nav-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .social-links {
+        margin-top: 1rem;
     }
 }
