@@ -5,9 +5,9 @@ const SECURITY_CONFIG = {
     // Disable text selection
     disableTextSelection: true,
     // Disable developer tools shortcuts
-    disableDevTools: true,
+    disableDevTools: false, // Disabled for iOS compatibility
     // Enable source code protection
-    protectSourceCode: true
+    protectSourceCode: false // Disabled for iOS compatibility
 };
 
 // Security Implementation

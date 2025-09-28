@@ -2,9 +2,30 @@
 (function() {
     'use strict';
     
+    // iOS Detection
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    
+    // Mobile Detection
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
     // Domain Locking - Only allow execution on authorized domains
     const ALLOWED_DOMAINS = [
         'potfolio-oghnnzj2c-elcanaoels-projects.vercel.app',
+        'potfolio-je834g8qq-elcanaoels-projects.vercel.app',
+        'potfolio-mgg0wb2q5-elcanaoels-projects.vercel.app',
+        'potfolio-1wfv48koc-elcanaoels-projects.vercel.app',
+        'potfolio-2is0i1utf-elcanaoels-projects.vercel.app',
+        'potfolio-5cv1uhs3a-elcanaoels-projects.vercel.app',
+        'potfolio-8ru1p33ar-elcanaoels-projects.vercel.app',
+        'potfolio-ip4yxr997-elcanaoels-projects.vercel.app',
+        'potfolio-lb54g60pt-elcanaoels-projects.vercel.app',
+        'potfolio-3dxi29jht-elcanaoels-projects.vercel.app',
+        'potfolio-iwcy91wxr-elcanaoels-projects.vercel.app',
+        'potfolio-o0paw8omf-elcanaoels-projects.vercel.app',
+        'potfolio-97tjhx1uu-elcanaoels-projects.vercel.app',
+        'potfolio-gblisj293-elcanaoels-projects.vercel.app',
+        'potfolio-hvw606pj8-elcanaoels-projects.vercel.app',
         'localhost',
         '127.0.0.1',
         'imyke.dev',
@@ -15,6 +36,37 @@
     const currentDomain = window.location.hostname;
     if (!ALLOWED_DOMAINS.includes(currentDomain)) {
         document.body.innerHTML = '<div style="text-align:center;padding:50px;color:#fff;background:#000;height:100vh;display:flex;align-items:center;justify-content:center;"><h1>Access Denied</h1><p>This content is not authorized for this domain.</p></div>';
+        return;
+    }
+    
+    // iOS/Mobile Compatibility Mode
+    if (isIOS || isMobile) {
+        // Lighter security for mobile devices
+        console.log('Mobile/iOS detected - using compatibility mode');
+        
+        // Basic protection only
+        document.addEventListener('contextmenu', function(e) {
+            // Allow right-click on mobile
+        });
+        
+        // Disable text selection
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable copy/paste
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        document.addEventListener('paste', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Skip heavy security measures for mobile
         return;
     }
     

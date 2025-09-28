@@ -57,18 +57,41 @@
     <!-- Advanced Security and Encryption -->
     <script src="advanced-security.js"></script>
     
-    <!-- Additional Code Protection -->
+    <!-- iOS-Compatible Code Protection -->
     <script>
     (function(){
-        // Disable text selection
+        // iOS Detection
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        
+        // Mobile Detection
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isIOS || isMobile) {
+            // Light protection for mobile/iOS
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            document.addEventListener('copy', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            document.addEventListener('paste', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Skip heavy security for mobile
+            return;
+        }
+        
+        // Desktop protection
         document.onselectstart = function() { return false; };
         document.onmousedown = function() { return false; };
-        
-        // Disable drag
         document.ondragstart = function() { return false; };
-        
-        // Allow context menu (right-click enabled)
-        // document.oncontextmenu = function() { return false; };
         
         // Disable F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S
         document.onkeydown = function(e) {
@@ -87,12 +110,12 @@
         // Disable save
         window.onbeforeunload = function() { return false; };
         
-        // Anti-debugging
+        // Anti-debugging (desktop only)
         setInterval(function() {
             debugger;
         }, 1000);
         
-        // Disable console
+        // Disable console (desktop only)
         console.clear();
         console.log = console.warn = console.error = console.info = console.debug = function() {};
         
