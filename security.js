@@ -14,6 +14,16 @@ const SECURITY_CONFIG = {
 (function() {
     'use strict';
     
+    // iOS Detection - Skip all security for iOS
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isIOS || isMobile) {
+        console.log('Mobile/iOS detected - skipping all security measures');
+        return;
+    }
+    
     // Disable right-click
     if (SECURITY_CONFIG.disableRightClick) {
         document.addEventListener('contextmenu', function(e) {

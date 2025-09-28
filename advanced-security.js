@@ -39,34 +39,13 @@
         return;
     }
     
-    // iOS/Mobile Compatibility Mode
+    // iOS/Mobile Compatibility Mode - NO SECURITY FOR MOBILE
     if (isIOS || isMobile) {
-        // Lighter security for mobile devices
-        console.log('Mobile/iOS detected - using compatibility mode');
+        console.log('Mobile/iOS detected - security disabled for compatibility');
         
-        // Basic protection only
-        document.addEventListener('contextmenu', function(e) {
-            // Allow right-click on mobile
-        });
+        // NO security measures for iOS - just let it work normally
+        // This ensures iOS Safari can load the site without any issues
         
-        // Disable text selection
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable copy/paste
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        document.addEventListener('paste', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Skip heavy security measures for mobile
         return;
     }
     
