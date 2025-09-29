@@ -51,78 +51,93 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Security Script -->
-    <script src="security.js"></script>
-    
-    <!-- iOS Safety Check -->
+    <!-- iOS Safety Check - Load FIRST -->
     <script>
-    // Ensure iOS can load the site
+    // Ensure iOS can load the site - CRITICAL FIX
     (function() {
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                       (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-        
-        if (isIOS) {
-            console.log('iOS detected - ensuring site loads properly');
-            // Force content to be visible
-            document.addEventListener('DOMContentLoaded', function() {
-                document.body.style.display = 'block';
-                document.body.style.visibility = 'visible';
-            });
-        }
-    })();
-    </script>
-    
-    <!-- Advanced Security and Encryption -->
-    <script src="advanced-security.js"></script>
-    
-    <!-- iOS-Compatible Code Protection -->
-    <script>
-    (function(){
-        // iOS Detection
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-        
-        // Mobile Detection
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         
         if (isIOS || isMobile) {
-            // NO security for iOS - just let it work normally
-            console.log('iOS/Mobile detected - no security applied');
+            console.log('Mobile/iOS detected - NO SECURITY SCRIPTS LOADED');
+            
+            // Force content to be visible immediately
+            document.addEventListener('DOMContentLoaded', function() {
+                document.body.style.display = 'block';
+                document.body.style.visibility = 'visible';
+                document.body.style.opacity = '1';
+                
+                // Force all content to be visible
+                const allElements = document.querySelectorAll('*');
+                allElements.forEach(function(el) {
+                    el.style.display = 'block';
+                    el.style.visibility = 'visible';
+                    el.style.opacity = '1';
+                });
+            });
+            
+            // Skip loading security scripts for mobile
+            window.skipSecurity = true;
             return;
         }
         
-        // Desktop protection
-        document.onselectstart = function() { return false; };
-        document.onmousedown = function() { return false; };
-        document.ondragstart = function() { return false; };
-        
-        // Disable F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S
-        document.onkeydown = function(e) {
-            if (e.keyCode === 123 || 
-                (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
-                (e.ctrlKey && e.keyCode === 85) ||
-                (e.ctrlKey && e.keyCode === 83)) {
-                e.preventDefault();
-                return false;
-            }
-        };
-        
-        // Disable print
-        window.onbeforeprint = function() { return false; };
-        
-        // Disable save
-        window.onbeforeunload = function() { return false; };
-        
-        // Anti-debugging (desktop only)
-        setInterval(function() {
-            debugger;
-        }, 1000);
-        
-        // Disable console (desktop only)
-        console.clear();
-        console.log = console.warn = console.error = console.info = console.debug = function() {};
-        
+        // Only load security for desktop
+        window.skipSecurity = false;
     })();
+    </script>
+    
+    <!-- Security Script - Desktop Only -->
+    <script>
+    if (!window.skipSecurity) {
+        document.write('<script src="security.js"><\/script>');
+    }
+    </script>
+    
+    <!-- Advanced Security and Encryption - Desktop Only -->
+    <script>
+    if (!window.skipSecurity) {
+        document.write('<script src="advanced-security.js"><\/script>');
+    }
+    </script>
+    
+    <!-- Desktop-Only Code Protection -->
+    <script>
+    if (!window.skipSecurity) {
+        (function(){
+            // Desktop protection only
+            document.onselectstart = function() { return false; };
+            document.onmousedown = function() { return false; };
+            document.ondragstart = function() { return false; };
+            
+            // Disable F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S
+            document.onkeydown = function(e) {
+                if (e.keyCode === 123 || 
+                    (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
+                    (e.ctrlKey && e.keyCode === 85) ||
+                    (e.ctrlKey && e.keyCode === 83)) {
+                    e.preventDefault();
+                    return false;
+                }
+            };
+            
+            // Disable print
+            window.onbeforeprint = function() { return false; };
+            
+            // Disable save
+            window.onbeforeunload = function() { return false; };
+            
+            // Anti-debugging (desktop only)
+            setInterval(function() {
+                debugger;
+            }, 1000);
+            
+            // Disable console (desktop only)
+            console.clear();
+            console.log = console.warn = console.error = console.info = console.debug = function() {};
+            
+        })();
+    }
     </script>
 </head>
 <body>
