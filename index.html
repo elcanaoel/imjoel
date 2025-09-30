@@ -218,6 +218,17 @@
                 attempts++;
                 if (attempts > 50) {
                     clearInterval(forceInterval);
+                    
+                    // If main content still not visible, show fallback
+                    const hero = document.querySelector('.hero');
+                    if (!hero || hero.offsetHeight === 0) {
+                        console.log('Main content not visible - showing iPhone fallback');
+                        const fallback = document.getElementById('iphone-fallback');
+                        if (fallback) {
+                            fallback.style.display = 'block';
+                            document.body.style.background = '#000';
+                        }
+                    }
                 }
             }, 100);
             
@@ -287,6 +298,33 @@
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     
+    <!-- iPhone Emergency Fallback Content -->
+    <div id="iphone-fallback" style="display: none; background: #000; color: #fff; padding: 2rem; min-height: 100vh;">
+        <h1 style="color: #e2e8f0; font-size: 2.5rem; margin-bottom: 1rem;">Hello! I'm Joel Enejo</h1>
+        <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 2rem;">I'm a Software Engineer and a junior Computer Engineering major with passion for problem-solving, strong foundation in computer science principles and proven track record of delivering high-quality and scalable code.</p>
+        
+        <div style="margin-bottom: 2rem;">
+            <a href="#" style="color: #e2e8f0; text-decoration: none; margin-right: 1rem;">RESUME</a>
+            <a href="#" style="color: #e2e8f0; text-decoration: none;">PROJECTS</a>
+        </div>
+        
+        <div style="margin-bottom: 2rem;">
+            <a href="https://github.com/elcanaoel" style="color: #667eea; text-decoration: none; margin-right: 1rem;">GitHub</a>
+            <a href="https://x.com/enejocoder" style="color: #667eea; text-decoration: none; margin-right: 1rem;">Twitter</a>
+            <a href="https://instagram.com/enejocoder" style="color: #667eea; text-decoration: none; margin-right: 1rem;">Instagram</a>
+            <a href="https://linkedin.com/in/enejocoder" style="color: #667eea; text-decoration: none;">LinkedIn</a>
+        </div>
+        
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 10px; padding: 1.5rem; margin: 1rem 0;">
+            <h3 style="color: #e2e8f0; margin-bottom: 0.5rem;">imcyberwar.vercel.app</h3>
+            <p style="color: #94a3b8; margin-bottom: 1rem;">My Portfolio Website</p>
+            <div style="color: #667eea; font-size: 0.9rem; margin-bottom: 1rem;">React + TypeScript + SASS</div>
+            <div>
+                <a href="#" style="color: #e2e8f0; text-decoration: none; margin-right: 1rem;">Live</a>
+                <a href="#" style="color: #e2e8f0; text-decoration: none;">Code</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
