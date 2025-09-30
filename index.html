@@ -233,58 +233,7 @@
     })();
     </script>
     
-    <!-- Security Script - Desktop Only -->
-    <script>
-    if (!window.skipSecurity) {
-        document.write('<script src="security.js"><\/script>');
-    }
-    </script>
     
-    <!-- Advanced Security and Encryption - Desktop Only -->
-    <script>
-    if (!window.skipSecurity) {
-        document.write('<script src="advanced-security.js"><\/script>');
-    }
-    </script>
-    
-    <!-- Desktop-Only Code Protection -->
-    <script>
-    if (!window.skipSecurity) {
-        (function(){
-            // Desktop protection only
-            document.onselectstart = function() { return false; };
-            document.onmousedown = function() { return false; };
-            document.ondragstart = function() { return false; };
-            
-            // Disable F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S
-            document.onkeydown = function(e) {
-                if (e.keyCode === 123 || 
-                    (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
-                    (e.ctrlKey && e.keyCode === 85) ||
-                    (e.ctrlKey && e.keyCode === 83)) {
-                    e.preventDefault();
-                    return false;
-                }
-            };
-            
-            // Disable print
-            window.onbeforeprint = function() { return false; };
-            
-            // Disable save
-            window.onbeforeunload = function() { return false; };
-            
-            // Anti-debugging (desktop only)
-            setInterval(function() {
-                debugger;
-            }, 1000);
-            
-            // Disable console (desktop only)
-            console.clear();
-            console.log = console.warn = console.error = console.info = console.debug = function() {};
-            
-        })();
-    }
-    </script>
 </head>
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -322,10 +271,10 @@
         <div class="hero-container">
             <div class="hero-left">
                 <div class="hero-content">
-                    <h1 class="hero-title" data-sensitive="true">
+                    <h1 class="hero-title">
                         Hello! I'm<br><span class="highlight">Joel Enejo</span>
                     </h1>
-                    <p class="hero-description" data-sensitive="true">
+                    <p class="hero-description">
                         I'm a Software Engineer and a junior Computer Engineering major with passion for problem-solving, strong foundation in computer science principles and proven track record of delivering high-quality and scalable code.
                     </p>
                     <div class="hero-nav">
@@ -358,15 +307,15 @@
                 <!-- Projects Section -->
                 <div class="content-section" id="projects-section">
                     <div class="projects-showcase">
-                        <div class="project-item" data-sensitive="true">
-                            <h3>imcyberwar.vercel.app</h3>
-                            <p>My Portfolio Website</p>
-                            <div class="project-tech">React + TypeScript + SASS</div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">Live</a>
-                                <a href="#" class="project-link">Code</a>
-                            </div>
-                        </div>
+                <div class="project-item">
+                    <h3>imcyberwar.vercel.app</h3>
+                    <p>My Portfolio Website</p>
+                    <div class="project-tech">React + TypeScript + SASS</div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Live</a>
+                        <a href="#" class="project-link">Code</a>
+                    </div>
+                </div>
                         <div class="project-item">
                             <h3>Afide</h3>
                             <p>Agricultural financial inclusion for daily earners</p>
