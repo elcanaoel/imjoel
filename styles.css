@@ -14,15 +14,9 @@ body {
     line-height: 1.6;
     color: #e2e8f0;
     background-color: #000000;
-    overflow: hidden;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
-    height: 100vh;
-    position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
     width: 100%;
 }
 
