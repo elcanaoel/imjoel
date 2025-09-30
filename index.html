@@ -3,269 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#667eea" />
-    <meta name="description" content="Enejo - Portfolio Website | Full Stack Developer" />
-    
-    <!-- Cache control -->
-    <meta http-equiv="Cache-Control" content="public, max-age=3600">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
-    
-    <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
-    
-    <!-- Web App Manifest - Disabled due to Vercel 401 error -->
-    <!-- <link rel="manifest" href="manifest.json" /> -->
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Enejo | Portfolio" />
-    <meta property="og:description" content="Full Stack Developer | Software Engineering" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
-    <meta property="og:image:width" content="400" />
-    <meta property="og:image:height" content="300" />
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Enejo | Portfolio" />
-    <meta name="twitter:description" content="Full Stack Developer | Software Engineering" />
-    
-    <!-- Security Meta Tags (X-Frame-Options removed as it must be set via HTTP headers) -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
-    
     <title>Enejo - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- iPhone Emergency CSS Fix -->
-    <style>
-    @media screen and (max-width: 768px) {
-        body {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            background: #000000 !important;
-        }
-        
-        .hero {
-            display: flex !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            min-height: 100vh !important;
-            background: #000000 !important;
-        }
-        
-        .hero-container {
-            display: flex !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-        
-        .hero-left {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            width: 100% !important;
-            position: static !important;
-            padding: 1rem !important;
-        }
-        
-        .hero-right {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            width: 100% !important;
-            position: static !important;
-            padding: 1rem !important;
-        }
-        
-        .hero-title {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            color: #e2e8f0 !important;
-            font-size: 2.5rem !important;
-        }
-        
-        .hero-description {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            color: #94a3b8 !important;
-        }
-        
-        .project-item {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            background: rgba(255, 255, 255, 0.05) !important;
-            border: 1px solid rgba(148, 163, 184, 0.1) !important;
-            border-radius: 10px !important;
-            padding: 1.5rem !important;
-            margin: 1rem 0 !important;
-        }
-        
-        * {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-    }
-    </style>
-    
-    <!-- iOS Safety Check - Load FIRST -->
-    <script>
-    // Ensure iOS can load the site - CRITICAL FIX
-    (function() {
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
-        if (isIOS || isMobile) {
-            console.log('Mobile/iOS detected - NO SECURITY SCRIPTS LOADED');
-            
-            // AGGRESSIVE iPhone visibility fix
-            function forceVisibility() {
-                // Force body to be visible
-                document.body.style.display = 'block';
-                document.body.style.visibility = 'visible';
-                document.body.style.opacity = '1';
-                document.body.style.background = '#000000';
-                
-                // Force all sections to be visible
-                const sections = document.querySelectorAll('section, div, h1, h2, h3, p, a, span');
-                sections.forEach(function(el) {
-                    el.style.display = 'block';
-                    el.style.visibility = 'visible';
-                    el.style.opacity = '1';
-                    el.style.color = '#e2e8f0';
-                    el.style.background = 'transparent';
-                });
-                
-                // Force hero section to be visible
-                const hero = document.querySelector('.hero');
-                if (hero) {
-                    hero.style.display = 'flex';
-                    hero.style.visibility = 'visible';
-                    hero.style.opacity = '1';
-                    hero.style.minHeight = '100vh';
-                }
-                
-                // Force hero content to be visible
-                const heroContent = document.querySelector('.hero-content');
-                if (heroContent) {
-                    heroContent.style.display = 'block';
-                    heroContent.style.visibility = 'visible';
-                    heroContent.style.opacity = '1';
-                }
-                
-                // Force hero title to be visible
-                const heroTitle = document.querySelector('.hero-title');
-                if (heroTitle) {
-                    heroTitle.style.display = 'block';
-                    heroTitle.style.visibility = 'visible';
-                    heroTitle.style.opacity = '1';
-                    heroTitle.style.color = '#e2e8f0';
-                    heroTitle.style.fontSize = '2.5rem';
-                }
-                
-                // Force hero description to be visible
-                const heroDesc = document.querySelector('.hero-description');
-                if (heroDesc) {
-                    heroDesc.style.display = 'block';
-                    heroDesc.style.visibility = 'visible';
-                    heroDesc.style.opacity = '1';
-                    heroDesc.style.color = '#94a3b8';
-                }
-                
-                // Force projects to be visible
-                const projects = document.querySelectorAll('.project-item');
-                projects.forEach(function(project) {
-                    project.style.display = 'block';
-                    project.style.visibility = 'visible';
-                    project.style.opacity = '1';
-                    project.style.background = 'rgba(255, 255, 255, 0.05)';
-                    project.style.border = '1px solid rgba(148, 163, 184, 0.1)';
-                    project.style.borderRadius = '10px';
-                    project.style.padding = '1.5rem';
-                    project.style.margin = '1rem 0';
-                });
-            }
-            
-            // Force visibility immediately and on load
-            forceVisibility();
-            
-            document.addEventListener('DOMContentLoaded', forceVisibility);
-            
-            // Force visibility every 100ms for first 5 seconds
-            let attempts = 0;
-            const forceInterval = setInterval(function() {
-                forceVisibility();
-                attempts++;
-                if (attempts > 50) {
-                    clearInterval(forceInterval);
-                    
-                    // If main content still not visible, show fallback
-                    const hero = document.querySelector('.hero');
-                    if (!hero || hero.offsetHeight === 0) {
-                        console.log('Main content not visible - showing iPhone fallback');
-                        const fallback = document.getElementById('iphone-fallback');
-                        if (fallback) {
-                            fallback.style.display = 'block';
-                            document.body.style.background = '#000';
-                        }
-                    }
-                }
-            }, 100);
-            
-            // Skip loading security scripts for mobile
-            window.skipSecurity = true;
-            return;
-        }
-        
-        // Only load security for desktop
-        window.skipSecurity = false;
-    })();
-    </script>
-    
-    
 </head>
 <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    
-    <!-- iPhone Emergency Fallback Content -->
-    <div id="iphone-fallback" style="display: none; background: #000; color: #fff; padding: 2rem; min-height: 100vh;">
-        <h1 style="color: #e2e8f0; font-size: 2.5rem; margin-bottom: 1rem;">Hello! I'm Joel Enejo</h1>
-        <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 2rem;">I'm a Software Engineer and a junior Computer Engineering major with passion for problem-solving, strong foundation in computer science principles and proven track record of delivering high-quality and scalable code.</p>
-        
-        <div style="margin-bottom: 2rem;">
-            <a href="#" style="color: #e2e8f0; text-decoration: none; margin-right: 1rem;">RESUME</a>
-            <a href="#" style="color: #e2e8f0; text-decoration: none;">PROJECTS</a>
-        </div>
-        
-        <div style="margin-bottom: 2rem;">
-            <a href="https://github.com/elcanaoel" style="color: #667eea; text-decoration: none; margin-right: 1rem;">GitHub</a>
-            <a href="https://x.com/enejocoder" style="color: #667eea; text-decoration: none; margin-right: 1rem;">Twitter</a>
-            <a href="https://instagram.com/enejocoder" style="color: #667eea; text-decoration: none; margin-right: 1rem;">Instagram</a>
-            <a href="https://linkedin.com/in/enejocoder" style="color: #667eea; text-decoration: none;">LinkedIn</a>
-        </div>
-        
-        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 10px; padding: 1.5rem; margin: 1rem 0;">
-            <h3 style="color: #e2e8f0; margin-bottom: 0.5rem;">imcyberwar.vercel.app</h3>
-            <p style="color: #94a3b8; margin-bottom: 1rem;">My Portfolio Website</p>
-            <div style="color: #667eea; font-size: 0.9rem; margin-bottom: 1rem;">React + TypeScript + SASS</div>
-            <div>
-                <a href="#" style="color: #e2e8f0; text-decoration: none; margin-right: 1rem;">Live</a>
-                <a href="#" style="color: #e2e8f0; text-decoration: none;">Code</a>
-            </div>
-        </div>
-    </div>
-
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-container">
@@ -287,19 +30,8 @@
                             <a href="#" class="nav-link" id="projects-link">PROJECTS</a>
                         </div>
                     </div>
-                    <div class="social-links">
-                        <a href="https://github.com/elcanaoel" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://x.com/enejocoder" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://instagram.com/enejocoder" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/enejocoder" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
+                    <div class="hero-actions">
+                        <a href="https://docs.google.com/document/d/1aAkqmRcmJG_oCTp9YTfU7iqURPLDrh7IE-toPunIk0s/edit?pli=1&tab=t.0" class="download-btn" target="_blank" rel="noopener noreferrer">Download</a>
                     </div>
                 </div>
             </div>
@@ -307,253 +39,32 @@
                 <!-- Projects Section -->
                 <div class="content-section" id="projects-section">
                     <div class="projects-showcase">
-                <div class="project-item">
-                    <h3>imcyberwar.vercel.app</h3>
-                    <p>My Portfolio Website</p>
-                    <div class="project-tech">React + TypeScript + SASS</div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Live</a>
-                        <a href="#" class="project-link">Code</a>
-                    </div>
-                </div>
+                        <div class="project-item">
+                            <h3>imcyberwar.vercel.app</h3>
+                            <p>My Portfolio Website</p>
+                            <div class="project-tech">React + TypeScript + SASS</div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Live</a>
+                                <a href="#" class="project-link">Code</a>
+                            </div>
+                        </div>
                         <div class="project-item">
                             <h3>Afide</h3>
                             <p>Agricultural financial inclusion for daily earners</p>
                             <div class="project-tech">Vue + Nodejs + MySQL</div>
                             <div class="project-links">
                                 <a href="#" class="project-link">Live</a>
+                                <a href="#" class="project-link">Code</a>
                             </div>
                         </div>
                         <div class="project-item">
-                            <h3>Brandzoos</h3>
-                            <p>A platform for brands and shoppers</p>
-                            <div class="project-tech">React + TypeScript + GraphQL + Nestjs + Postgres</div>
+                            <h3>Enejo</h3>
+                            <p>Personal portfolio website</p>
+                            <div class="project-tech">HTML + CSS + JavaScript</div>
                             <div class="project-links">
                                 <a href="#" class="project-link">Live</a>
-                            </div>
-                        </div>
-                        <div class="project-item">
-                            <h3>Site Map Builder</h3>
-                            <p>A sitemap builder</p>
-                            <div class="project-tech">Go</div>
-                            <div class="project-links">
                                 <a href="#" class="project-link">Code</a>
                             </div>
-                        </div>
-                        <div class="project-item">
-                            <h3>Task</h3>
-                            <p>A CLI task manager</p>
-                            <div class="project-tech">Go</div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">Code</a>
-                            </div>
-                        </div>
-                        <div class="project-item">
-                            <h3>Tic Tac Toe</h3>
-                            <p>Tic Tac Toe game</p>
-                            <div class="project-tech">Go</div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">Code</a>
-                            </div>
-                        </div>
-                        <div class="project-item">
-                            <h3>Capstone Project</h3>
-                            <p>Cloud DevOps Nanodegree Capstone Project (Udacity)</p>
-                            <div class="project-tech">AWS + Jenkins + Docker + Kubernetes + Python</div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">Code</a>
-                            </div>
-                        </div>
-                        <div class="project-item">
-                            <h3>Operationalized ML API</h3>
-                            <p>Automated CI-CD pipeline for ML API that predicts housing price in Boston</p>
-                            <div class="project-tech">Flask + AWS + Jenkins + Docker + Kubernetes + Circle CI</div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">Code</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Resume Section -->
-                <div class="content-section" id="resume-section" style="display: none;">
-                    <div class="resume-content">
-                        <div class="resume-header">
-                            <h2>Joel Celestine</h2>
-                            <a href="https://docs.google.com/document/d/1aAkqmRcmJG_oCTp9YTfU7iqURPLDrh7IE-toPunIk0s/edit?pli=1&tab=t.0" class="download-btn" target="_blank" rel="noopener noreferrer">Download</a>
-                        </div>
-                        
-                        <div class="resume-section">
-                            <p class="resume-intro">
-                                As a Computer Engineering student and Software Engineer, I am passionate about using technology to solve real-world problems. With a strong foundation in Computer Science and Engineering principles and programming languages such as JavaScript, Python, C++ and Java. I am constantly seeking opportunities to learn and apply my skills in new and innovative ways.
-                            </p>
-                            <p class="resume-intro">
-                                In addition to my academic pursuits, I have completed internships at leading technology companies, where I have gained valuable experience working on complex software projects. I am a team player who enjoys collaborating with others and sharing knowledge.
-                            </p>
-                            <p class="resume-intro">
-                                I am excited to continue learning and growing as a software engineer, and I am eager to apply my skills and knowledge to tackle challenging problems and make a positive impact on the world.
-                            </p>
-                        </div>
-
-                        <div class="resume-section">
-                            <h3>Skills</h3>
-                            <div class="skills-grid">
-                                <div class="skill-category">
-                                    <h4>Languages:</h4>
-                                    <p>JavaScript, TypeScript, Python, C++, Java, Go</p>
-                                </div>
-                                <div class="skill-category">
-                                    <h4>Frameworks/Libraries:</h4>
-                                    <p>React, Vue, Nodejs, Nestjs, Nextjs, GraphQL, Flask</p>
-                                </div>
-                                <div class="skill-category">
-                                    <h4>Storages/Databases:</h4>
-                                    <p>SQL, PostgreSQL, MongoDB, Kafka, ElasticSearch, Neo4j</p>
-                                </div>
-                                <div class="skill-category">
-                                    <h4>Tooling:</h4>
-                                    <p>Linux, Git, Docker, Kubernetes, AWS, GCP</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="resume-section">
-                            <h3>Experience</h3>
-                            
-                            <div class="experience-item">
-                                <div class="exp-header">
-                                    <h4>JP Morgan Chase & Co - Software Engineer Intern</h4>
-                                    <span class="exp-date">JUN 2023 - AUG 2023</span>
-                                </div>
-                                <ul class="exp-details">
-                                    <li>Co-Led a team of 3 interns, designing and developing an end-to-end social network graph project for employees to find how they are connected to other people within the firm, improving employee experience.</li>
-                                    <li>Developed a Batch Processing application which transforms Oracle SQL data into Neo4j Graph data using Spring Batch</li>
-                                    <li>Developed a RESTful backend service to compute the shortest path, all paths, and path recommendations in the employee network</li>
-                                    <li>Implemented draggable and interactive graphs visualization for the social network</li>
-                                </ul>
-                            </div>
-
-                            <div class="experience-item">
-                                <div class="exp-header">
-                                    <h4>Cruise LLC - Software Engineer Intern</h4>
-                                    <span class="exp-date">SEP 2022 - DEC 2022</span>
-                                </div>
-                                <ul class="exp-details">
-                                    <li>Helped built the world's most advanced self-driving vehicles to safely connect people with places, things, and experiences they care about</li>
-                                    <li>Collaborated alongside multiple teams to bring forth multiple deliverables that improved end-to-end metrics gathering, enabling the Simulation department to measure the impact of its various efforts on key success metrics</li>
-                                    <li>Contributed to Cruise AI Simulation Platform Tools which empowers AV engineers to run simulations at scale, accelerating the development of Autonomous Vehicles by more than 4x</li>
-                                    <li>Implemented NPCs objective profile conversion features for Planning Simulation (PSIM) and Matrix on the Scenario Editor Software, which prevent data loss while editing scenarios and maintain states between NPCs objective profiles</li>
-                                </ul>
-                            </div>
-
-                            <div class="experience-item">
-                                <div class="exp-header">
-                                    <h4>JP Morgan Chase & Co - Software Engineer Intern</h4>
-                                    <span class="exp-date">JUN 2022 - AUG 2022</span>
-                                </div>
-                                <ul class="exp-details">
-                                    <li>Designed and developed the prototype of a new Global Search Platform that enables searching of internal trades data to make search speed at least 10x faster and flexible search queries possible using Spring Boot and Elasticsearch</li>
-                                    <li>Configured and deployed Kafka Connect (sink connector) to ship data from the Kafka Cluster to the Elasticsearch Cluster</li>
-                                    <li>Automated the visualization and analytics of data as they are shipped in real-time using Kibana</li>
-                                </ul>
-                            </div>
-
-                            <div class="experience-item">
-                                <div class="exp-header">
-                                    <h4>Block Knowledge - Software and DevOps Engineer</h4>
-                                    <span class="exp-date">DEC 2020 - DEC 2021</span>
-                                </div>
-                                <ul class="exp-details">
-                                    <li>Designed the database and system architecture for Kadogo (turn everyday purchases into charitable donations)</li>
-                                    <li>Led the kadogo backend team of 2 - 3 people</li>
-                                    <li>Built the entire backend of the MVP version, which raised $100,000 in funding</li>
-                                    <li>Optimized the backend to leverage on cloud services like serverless functions and messaging systems to increase performance and prevent downtime of the critical part of the application</li>
-                                    <li>Developed APIs for the mobile application, merchant and NGO dashboard</li>
-                                    <li>Facilitated the use of continuous integration and continuous deployment tools to reduce code shipping time and increase collaboration and productivity among the developers</li>
-                                    <li>Implemented the spare change and cashback donation algorithms</li>
-                                    <li>Set up Autoscaling, Load balancers and failover servers on AWS for development, staging, production environment</li>
-                                </ul>
-                            </div>
-
-                            <div class="experience-item">
-                                <div class="exp-header">
-                                    <h4>Powerjamb - Software and DevOps Engineer Intern</h4>
-                                    <span class="exp-date">JUN 2019 - SEP 2020</span>
-                                </div>
-                                <ul class="exp-details">
-                                    <li>Managed infrastructure as code using AWS CloudFormation</li>
-                                    <li>Redesigned the landing page to 3x faster</li>
-                                    <li>Developed a web mobile-first examination application</li>
-                                    <li>Created Dockerfiles and built docker images for the microservices to run on Kubernetes cluster</li>
-                                    <li>Created and managed the deployment of microservices cluster to EKS using Docker, Kubernetes, Helm, and Jenkins</li>
-                                    <li>Experience with Amazon services such as AWS, VPC, S3, EC2 Relational Database (RDS), Document DB, Elastic Load Balancing, Autoscaling, ECR, ECS, Lambda, IAM, EKS, Beanstalk, and CloudFormation</li>
-                                </ul>
-                            </div>
-
-                            <div class="experience-item">
-                                <div class="exp-header">
-                                    <h4>Soft Quest Incorporated - Software Enginer Intern</h4>
-                                    <span class="exp-date">SEP 2018 - MAR 2019</span>
-                                </div>
-                                <ul class="exp-details">
-                                    <li>Produced clean, validation-ready code for given project needs</li>
-                                    <li>Developed a basic Banking Web Application with Angular and PHP</li>
-                                    <li>Developed a Car Racing game using JavaScript and HTML5 canvas</li>
-                                    <li>Built an advanced Scientific Calculator, Inventory System, Timer, Countdown on the Web and many other self-development Projects</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="resume-section">
-                            <h3>Education</h3>
-                            <div class="education-item">
-                                <h4>B.Sc Computer Engineering at Obafemi Awolowo University</h4>
-                                <span class="edu-date">MAY 2025</span>
-                            </div>
-                            <div class="education-item">
-                                <h4>Smith International Baptist Academy, Ogbomoso</h4>
-                                <span class="edu-date">SEP 2012 - JUL 2018</span>
-                            </div>
-                        </div>
-
-                        <div class="resume-section">
-                            <h3>Certification</h3>
-                            <div class="cert-item">
-                                <h4>Cloud DevOps Engineer Nanodegree, Udacity</h4>
-                                <span class="cert-date">MAY 2020</span>
-                            </div>
-                            <div class="cert-item">
-                                <h4>Microsoft Certified: Azure Fundamentals (AZ – 900)</h4>
-                                <span class="cert-date">JUL 2020</span>
-                            </div>
-                        </div>
-
-                        <div class="resume-section">
-                            <h3>Languages</h3>
-                            <div class="languages-grid">
-                                <div class="lang-item">
-                                    <span class="lang-name">English</span>
-                                    <span class="lang-level">PROFICIENT</span>
-                                </div>
-                                <div class="lang-item">
-                                    <span class="lang-name">Yoruba</span>
-                                    <span class="lang-level">PROFICIENT</span>
-                                </div>
-                                <div class="lang-item">
-                                    <span class="lang-name">Spanish</span>
-                                    <span class="lang-level">BEGINNER</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="resume-section">
-                            <h3>Hobbies</h3>
-                            <p class="hobbies-text">Learning, Playing the piano, Lifting, Football/Soccer</p>
-                        </div>
-
-                        <div class="resume-section">
-                            <h3>Projects</h3>
-                            <p class="projects-text">Some selected projects can be found <a href="#" class="projects-link">here</a></p>
                         </div>
                     </div>
                 </div>
@@ -561,7 +72,21 @@
         </div>
     </section>
 
-
+    <!-- Social Links -->
+    <div class="social-links">
+        <a href="https://github.com/elcanaoel" class="social-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://x.com/enejocoder" class="social-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://instagram.com/enejocoder" class="social-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://linkedin.com/in/enejocoder" class="social-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin"></i>
+        </a>
+    </div>
 
     <script src="script.js"></script>
 </body>
