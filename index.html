@@ -51,6 +51,82 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <!-- iPhone Emergency CSS Fix -->
+    <style>
+    @media screen and (max-width: 768px) {
+        body {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: #000000 !important;
+        }
+        
+        .hero {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            min-height: 100vh !important;
+            background: #000000 !important;
+        }
+        
+        .hero-container {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        
+        .hero-left {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: 100% !important;
+            position: static !important;
+            padding: 1rem !important;
+        }
+        
+        .hero-right {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: 100% !important;
+            position: static !important;
+            padding: 1rem !important;
+        }
+        
+        .hero-title {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            color: #e2e8f0 !important;
+            font-size: 2.5rem !important;
+        }
+        
+        .hero-description {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            color: #94a3b8 !important;
+        }
+        
+        .project-item {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(148, 163, 184, 0.1) !important;
+            border-radius: 10px !important;
+            padding: 1.5rem !important;
+            margin: 1rem 0 !important;
+        }
+        
+        * {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+    }
+    </style>
+    
     <!-- iOS Safety Check - Load FIRST -->
     <script>
     // Ensure iOS can load the site - CRITICAL FIX
@@ -62,20 +138,88 @@
         if (isIOS || isMobile) {
             console.log('Mobile/iOS detected - NO SECURITY SCRIPTS LOADED');
             
-            // Force content to be visible immediately
-            document.addEventListener('DOMContentLoaded', function() {
+            // AGGRESSIVE iPhone visibility fix
+            function forceVisibility() {
+                // Force body to be visible
                 document.body.style.display = 'block';
                 document.body.style.visibility = 'visible';
                 document.body.style.opacity = '1';
+                document.body.style.background = '#000000';
                 
-                // Force all content to be visible
-                const allElements = document.querySelectorAll('*');
-                allElements.forEach(function(el) {
+                // Force all sections to be visible
+                const sections = document.querySelectorAll('section, div, h1, h2, h3, p, a, span');
+                sections.forEach(function(el) {
                     el.style.display = 'block';
                     el.style.visibility = 'visible';
                     el.style.opacity = '1';
+                    el.style.color = '#e2e8f0';
+                    el.style.background = 'transparent';
                 });
-            });
+                
+                // Force hero section to be visible
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.display = 'flex';
+                    hero.style.visibility = 'visible';
+                    hero.style.opacity = '1';
+                    hero.style.minHeight = '100vh';
+                }
+                
+                // Force hero content to be visible
+                const heroContent = document.querySelector('.hero-content');
+                if (heroContent) {
+                    heroContent.style.display = 'block';
+                    heroContent.style.visibility = 'visible';
+                    heroContent.style.opacity = '1';
+                }
+                
+                // Force hero title to be visible
+                const heroTitle = document.querySelector('.hero-title');
+                if (heroTitle) {
+                    heroTitle.style.display = 'block';
+                    heroTitle.style.visibility = 'visible';
+                    heroTitle.style.opacity = '1';
+                    heroTitle.style.color = '#e2e8f0';
+                    heroTitle.style.fontSize = '2.5rem';
+                }
+                
+                // Force hero description to be visible
+                const heroDesc = document.querySelector('.hero-description');
+                if (heroDesc) {
+                    heroDesc.style.display = 'block';
+                    heroDesc.style.visibility = 'visible';
+                    heroDesc.style.opacity = '1';
+                    heroDesc.style.color = '#94a3b8';
+                }
+                
+                // Force projects to be visible
+                const projects = document.querySelectorAll('.project-item');
+                projects.forEach(function(project) {
+                    project.style.display = 'block';
+                    project.style.visibility = 'visible';
+                    project.style.opacity = '1';
+                    project.style.background = 'rgba(255, 255, 255, 0.05)';
+                    project.style.border = '1px solid rgba(148, 163, 184, 0.1)';
+                    project.style.borderRadius = '10px';
+                    project.style.padding = '1.5rem';
+                    project.style.margin = '1rem 0';
+                });
+            }
+            
+            // Force visibility immediately and on load
+            forceVisibility();
+            
+            document.addEventListener('DOMContentLoaded', forceVisibility);
+            
+            // Force visibility every 100ms for first 5 seconds
+            let attempts = 0;
+            const forceInterval = setInterval(function() {
+                forceVisibility();
+                attempts++;
+                if (attempts > 50) {
+                    clearInterval(forceInterval);
+                }
+            }, 100);
             
             // Skip loading security scripts for mobile
             window.skipSecurity = true;
